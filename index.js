@@ -18,10 +18,8 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
+        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=no');
 
-        ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
-        ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
         ref.addEventListener('exit', function(event) { alert(event.type); });
     },
