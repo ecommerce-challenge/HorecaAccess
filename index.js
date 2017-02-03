@@ -16,7 +16,10 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        window.open = cordova.InAppBrowser.open;
+        app.receivedEvent('deviceready');
+        var target = "_blank";
+        var options = "location=yes";
+        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', target, options);
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
         ref.addEventListener('exit', function(event) { alert(event.type); });
     },
