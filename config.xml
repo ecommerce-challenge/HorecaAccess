@@ -69,9 +69,8 @@
 	
 
 		
-	    <content src="http://www.stichtingtoegankelijkehoreca.nl"></content>
+	    <content src="index.html"></content>
 	    <plugin name="cordova-plugin-inappbrowser" source="npm"/>
-	    <access origin="*"></access>
 	
 		
 	</widget>
