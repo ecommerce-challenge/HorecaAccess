@@ -69,7 +69,7 @@
 	
 
 		
-	    <content src="index.html"></content>
+	    <content src="http://www.stichtingtoegankelijkehoreca.nl"></content>
 	    <plugin name="cordova-plugin-inappbrowser" source="npm"/>
 	    <access origin="*"></access>
 	
