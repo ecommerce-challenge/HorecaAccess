@@ -25,7 +25,7 @@ var app = {
     function reloadPage() {
         var inAppBrowserRef = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         inAppBrowserRef.addEventListener('exit', reloadPage);
-    }
+    },
     
     // Update DOM on a Received Event
     receivedEvent: function(id) {
