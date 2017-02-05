@@ -10,7 +10,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('load', this.reloadPage, false);
+        document.addEventListener('load', this.onPageLoad, false);
     },
     // deviceready Event Handler
     //
@@ -24,7 +24,7 @@ var app = {
             cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');});
     },
     
-    reloadPage: function() {
+    onPageLoad: function() {
         app.receivedEvent('load')
         var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
