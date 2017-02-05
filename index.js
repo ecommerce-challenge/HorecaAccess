@@ -22,7 +22,7 @@ var app = {
         ref.addEventListener('exit', reloadPage);
     },
     
-    function reloadPage() {
+    reloadPage: function() {
         var inAppBrowserRef = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         inAppBrowserRef.addEventListener('exit', reloadPage);
     },
