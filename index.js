@@ -32,7 +32,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        if id='exit' {
+        if (id='exit') {
         cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', target, options); 
         }
     }
