@@ -17,15 +17,13 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        var target = "_blank";
-        var options = "location=yes";
-        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', target, options);
+        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
         ref.addEventListener('exit', reloadPage);
     },
     
     function reloadPage() {
-        var inAppBrowserRef = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', target, options);
+        var inAppBrowserRef = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         inAppBrowserRef.addEventListener('exit', reloadPage);
     }
     
