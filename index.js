@@ -19,7 +19,12 @@ var app = {
         app.receivedEvent('deviceready');
         var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-        ref.addEventListener('exit', function() { app.initialize });
+        ref.addEventListener('exit', function(event) { 
+            alert('exit': ' + event.message);    
+            ref2 = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
+            ref2.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+            ref2.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+        });
     },
     
     // Update DOM on a Received Event
