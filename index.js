@@ -21,7 +21,8 @@ var app = {
         var options = "location=yes";
         var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', target, options);
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-        ref.addEventListener('exit', function(event) { alert(event.type); });
+        ref.addEventListener('exit', function() { 
+            cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', target, options); });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
