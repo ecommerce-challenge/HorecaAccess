@@ -10,7 +10,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('load', this.onPageLoad, false);
     },
     // deviceready Event Handler
     //
@@ -20,16 +19,7 @@ var app = {
         app.receivedEvent('deviceready');
         var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-        ref.addEventListener('exit', function() {
-            cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');});
-    },
-    
-    onPageLoad: function() {
-        app.receivedEvent('load')
-        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
-        ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-        ref.addEventListener('exit', function() {
-            cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');});
+        ref.addEventListener('exit', function() { app.initialize });
     },
     
     // Update DOM on a Received Event
