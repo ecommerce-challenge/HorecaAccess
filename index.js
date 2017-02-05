@@ -19,7 +19,7 @@ var app = {
         app.receivedEvent('deviceready');
         var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-        ref.addEventListener('exit', reloadPage);
+        ref.addEventListener('exit', app.reloadPage());
     },
     
     reloadPage: function() {
