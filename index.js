@@ -10,6 +10,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('load', this.reloadPage, false);
     },
     // deviceready Event Handler
     //
@@ -17,15 +18,16 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        var url = 'http://www.stichtingtoegankelijkehoreca.nl'
-        var ref = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
+        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
         ref.addEventListener('exit', app.reloadPage(url));
     },
     
-    reloadPage: function(url) {
-        var inAppBrowserRef = cordova.InAppBrowser.open(url, '_blank', 'location=yes');
-        inAppBrowserRef.addEventListener('exit', app.reloadPage(url));
+    reloadPage: function() {
+        app.receivedEvent('load')
+        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=yes');
+        ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+        ref.addEventListener('exit', app.reloadPage(url));
     },
     
     // Update DOM on a Received Event
