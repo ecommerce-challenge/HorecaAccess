@@ -17,7 +17,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=no');
+        var ref = cordova.InAppBrowser.open('http://www.stichtingtoegankelijkehoreca.nl', '_blank', 'location=no,toolbar=no');
         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
     },
     
